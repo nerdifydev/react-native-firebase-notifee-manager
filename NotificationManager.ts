@@ -70,16 +70,6 @@ class NotificationManager {
           return false;
         }
       }
-
-      const enabled = await messaging().hasPermission();
-      if (!enabled) {
-        const authStatus = await messaging().requestPermission();
-        return (
-          authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-          authStatus === messaging.AuthorizationStatus.PROVISIONAL
-        );
-      }
-
       return true;
     } catch (error) {
       console.error("Error requesting Android FCM permission:", error);
