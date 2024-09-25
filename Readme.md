@@ -129,6 +129,42 @@ The backend should use the following different payload structures when sending n
 }
 ```
 
+## Android notification small icon setup just in case
+
+Follow the link for setting up notification small icon :
+https://notifee.app/react-native/docs/android/appearance#small-icons
+
+You will need to modify `NotificationManager.ts` after following the steps in the above link, when creating the Notification Image Set.
+
+```javascript
+  public async displayNotification(
+    remoteMessage: FirebaseMessagingTypes.RemoteMessage
+  ): Promise<void> {
+    const channelId = await notifee.createChannel({
+      id: "default",
+      name: "Default Channel",
+      importance: AndroidImportance.HIGH,
+      visibility: AndroidVisibility.PUBLIC,
+    });
+
+    // Display a notification
+    await notifee.displayNotification({
+      title: remoteMessage.data?.title as string,
+      body: remoteMessage.data?.body as string,
+      data: remoteMessage.data,
+      android: {
+        channelId,
+        smallIcon: "ic_launcher", // Change the name as per your Notifications Image Set ,followed by above link 
+        pressAction: {
+          id: "default",
+        },
+        importance: AndroidImportance.HIGH,
+        visibility: AndroidVisibility.PUBLIC,
+      },
+    });
+  }
+```
+
 ## Additional Resources
 
 - See usage examples in the `ExampleApp.tsx` file.

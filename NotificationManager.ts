@@ -170,7 +170,7 @@ class NotificationManager {
       data: remoteMessage.data,
       android: {
         channelId,
-        smallIcon: "ic_launcher",
+        smallIcon: "ic_launcher", // name drawable small ic_small_icon refer to Readme.md small icons section
         pressAction: {
           id: "default",
         },
