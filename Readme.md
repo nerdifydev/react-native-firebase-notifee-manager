@@ -103,9 +103,12 @@ The backend should use the following different payload structures when sending n
           "title" : "RN push message with priority high",
           "body" : "This is test message."
       },
-      "android" : {
-          "priority" : "high"
-      }
+      "android":{
+          "notification" : {
+             "sound" : "default"
+          },
+          "priority":"high"
+       }
    }
 }
 ```
@@ -124,6 +127,13 @@ The backend should use the following different payload structures when sending n
       "notification" : {
           "title" : "RN iOS push message with priority high",
           "body" : "This is test message."
+      },
+      "apns":{
+        "payload" :{
+            "aps" :{
+                "sound" : "default"
+            }
+        }
       }
    }
 }
