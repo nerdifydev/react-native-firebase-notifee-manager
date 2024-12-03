@@ -161,6 +161,7 @@ class NotificationManager {
       name: "Default Channel",
       importance: AndroidImportance.HIGH,
       visibility: AndroidVisibility.PUBLIC,
+      sound : "default"
     });
 
     // Display a notification
@@ -177,6 +178,10 @@ class NotificationManager {
         importance: AndroidImportance.HIGH,
         visibility: AndroidVisibility.PUBLIC,
       },
+      ios: {
+        sound: "default",
+        critical: true
+      }
     });
   }
 
